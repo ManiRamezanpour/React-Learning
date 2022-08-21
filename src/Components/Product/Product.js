@@ -9,12 +9,12 @@ const Product = (props) => {
       <h1>Product Name : {props.name}</h1>
       <h2>Price is : {props.price}</h2>
     </div>
-    // ! Use <></> 
+    // ! Use <></>
     // <>
-    //   <h1>Product Name : {props.name}</h1>
+    //   <h1>Product Name : {props.name }</h1>
     //   <h2>Price is : {props.price}</h2>
     // </>
-     // ! Fragment
+    // ! Fragment
     // <Fragment>
     //   <h1>Product Name : {props.name}</h1>
     //   <h2>Price is : {props.price}</h2>

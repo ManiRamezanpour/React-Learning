@@ -1,5 +1,8 @@
 .Product {
+  justify-content: center;
   border: 1px solid black;
   text-align: center;
   background-color: red;
+  width: 300px;
+  margin-top :10px;
 }

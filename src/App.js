@@ -1,29 +1,14 @@
 import React, { Component } from "react";
-import Product from "./Components/Product";
-import "./app.css";
+import Product from "./Components/Product/Product";
+import ProductList from "./Components/List/ProductList";
+import styles from "./app.module.css"
 class App extends Component {
-  state = {
-    products: [
-      { title: "NodeJs", price: "17$", id: 1 },
-      { title: "NodeJs", price: "17$", id: 2 },
-      { title: "NodeJs", price: "17$", id: 3 },
-    ],
-  };
+  state = {};
   render() {
     return (
-      <div className="container" id="title">
-        <h1>Shopping App</h1>
-        {this.state.products.map((product) => {
-          return (
-            <Product
-              className="box"
-              name={product.title}
-              price={product.price}
-              key={product.id}
-            />
-          );
-        })}
-      </div>
+      <>
+        <ProductList/>
+      </>
     );
   }
   // * 1. just change or update the state with "setState";
