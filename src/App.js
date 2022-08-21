@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Product from "./Components/Product";
-import './app.css'
+import "./app.css";
 class App extends Component {
   state = {
     products: [
@@ -16,7 +16,7 @@ class App extends Component {
         {this.state.products.map((product) => {
           return (
             <Product
-            className="box"
+              className="box"
               name={product.title}
               price={product.price}
               key={product.id}
@@ -26,6 +26,12 @@ class App extends Component {
       </div>
     );
   }
+  // * 1. just change or update the state with "setState";
+  //! { some props : 
+  // ? 1. Atributte
+  // ? 2. state
+  // ? 3. pass fragment as a props
+  //! }
 }
 
 export default App;
