@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Product from "./Components/Product";
+import './app.css'
 class App extends Component {
   state = {
     products: [
@@ -15,6 +16,7 @@ class App extends Component {
         {this.state.products.map((product) => {
           return (
             <Product
+            className="box"
               name={product.title}
               price={product.price}
               key={product.id}
