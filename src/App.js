@@ -27,11 +27,11 @@ class App extends Component {
     );
   }
   // * 1. just change or update the state with "setState";
-  //! { some props : 
+  /*! { some props : 
   // ? 1. Atributte
   // ? 2. state
   // ? 3. pass fragment as a props
-  //! }
+  ! } */
 }
 
 export default App;
