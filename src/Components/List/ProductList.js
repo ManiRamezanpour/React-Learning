@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Product from "../Product/Product";
+
 class ProductList extends Component {
   state = {
     products: [
@@ -25,10 +26,10 @@ class ProductList extends Component {
     const selectedItem = products.find((p) => p.id === id);
     if (selectedItem.quantity === 1) {
       const filtredProduct = products.filter((p) => p.id !== id);
-      this.setState({products:filtredProduct})
+      this.setState({ products: filtredProduct });
     } else {
       selectedItem.quantity--; // State Mutate
-      this.setState({ products: products });        
+      this.setState({ products: products });
     }
   };
   inputHandler = (e, id) => {
@@ -37,24 +38,30 @@ class ProductList extends Component {
     selectedItem.title = e.target.value;
     this.setState({ products: products });
   };
+  renderProduct = () => {
+    if (this.state.products.length === 0)
+      return <h1>there is no product in cart </h1>;
+    return this.state.products.map((product, index) => {
+      return (
+        <Product
+          className="box"
+          name={product.title}
+          price={product.price}
+          quantity={product.quantity}
+          key={index}
+          onDelete={() => this.removeHandler(product.id)}
+          onIncrement={() => this.incrementHandlers(product.id)}
+          onDecrement={() => this.DecrementHandlers(product.id)}
+          onChnage={(e) => this.inputHandler(e, product.id)}
+        />
+      );
+    });
+  };
   render() {
     return (
       <div>
-        {this.state.products.map((product, index) => {
-          return (
-            <Product
-              className="box"
-              name={product.title}
-              price={product.price}
-              quantity={product.quantity}
-              key={index}
-              onDelete={() => this.removeHandler(product.id)}
-              onIncrement={() => this.incrementHandlers(product.id)}
-              onDecrement={() => this.DecrementHandlers(product.id)}
-              onChnage={(e) => this.inputHandler(e, product.id)}
-            />
-          );
-        })}
+        {!this.state.products.length && <h1>GO to shopping</h1>}
+        {this.renderProduct()}
       </div>
     );
   }
