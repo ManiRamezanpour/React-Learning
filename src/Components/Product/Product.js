@@ -2,32 +2,37 @@ import React from "react";
 import styles from "./Product.module.css";
 import { BiTrash } from "react-icons/bi";
 
-const Product = (props) => {
+const Product = ({onChnage,onDecrement,onIncrement,onDelete,product}) => {
   return (
     <div className={styles.Product}>
-      <h1>Product Name : {props.name}</h1>
-      <h2>Price is : {props.price}</h2>
-      <span className={styles.value}>{props.quantity}</span>
+      <h2>Product Name : {product.title}</h2>
+      <h2>Price is : {product.price}</h2>
+      <span className={styles.value}>{product.quantity}</span>
       <input
         type="text"
-        onChange={props.onChnage}
+        onChange={onChnage}
         className={styles.input}
-        value={props.name}
+        value={product.title}
       />
       <button
         className={`${styles.button} ${styles.incbtn}`}
-        onClick={props.onIncrement}
+        onClick={onIncrement}
       >
         +
       </button>
       <button
-        className={`${styles.button} ${styles.incbtn}`}
-        onClick={props.onDecrement}
+        className={`${styles.button} ${
+        product.quantity === 1 ? styles.remove : null
+        }`}
+        onClick={onDecrement}
       >
-        {props.quantity > 1 ? "-" : <BiTrash /> }
+        {product.quantity > 1 ? "-" : <BiTrash />}
       </button>
-      <button onClick={props.onDelete} className={styles.button}>
-        Delete
+      <button
+        onClick={onDelete}
+        className={`${styles.button} ${styles.remove}`}
+      >
+        remove
       </button>
     </div>
   );

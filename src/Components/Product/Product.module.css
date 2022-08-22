@@ -17,10 +17,6 @@
   padding: 5px 10px;
   cursor: pointer;
 }
-
-.incbtn {
-  background-color: #ede9fe;
-}
 .value {
   display: inline-block;
   width: 20px;
@@ -45,4 +41,8 @@
 }
 .input:focus{
   outline: 1px solid #6d28d9;
+}
+.remove{
+  color: red;
+  border: 1px solid red;
 }
