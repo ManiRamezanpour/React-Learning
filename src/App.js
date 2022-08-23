@@ -4,9 +4,9 @@ import styles from "./app.module.css";
 import Navbar from "./Components/Navbar/Navbar";
 
 class App extends Component {
-  //*? constructor log when class is run 
+  //*? constructor log when class is run
   constructor(props) {
-    super(props)
+    super(props);
     console.log("App.js Constructor");
   }
   state = {
@@ -22,12 +22,17 @@ class App extends Component {
     this.setState({ products: filtredProduct });
   };
   incrementHandlers = (id) => {
-    // this.state.products;
+    // Code with no muted
+    const index = this.state.products.findIndex((item) => item.id === id);
+    // console.log(index);
+    // 3. clone the selected index and update the qty:
+    const product = { ...this.state.products[index] };
+    product.quantity++;
+
+    // 4. update the product;
     const products = [...this.state.products];
-    console.log(products);
-    const selectedItem = products.find((p) => p.id === id);
-    selectedItem.quantity++; // State Mutate
-    this.setState({ products: products });
+    products[index] = product;
+    this.setState({ products });
   };
   DecrementHandlers = (id) => {
     const products = [...this.state.products];
@@ -47,12 +52,17 @@ class App extends Component {
     this.setState({ products: products });
   };
   //* finishd the run and ouput in DOM
-  componentDidMount() {  
+  componentDidMount() {
     console.log("App.js componentDidMount");
-   }
+    // AJAX =>
+    //this.setState({ products })
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log("app.js cdu", prevState);
+  }
   render() {
     //? log after render method run
-    console.log('App.js render');
+    console.log("App.js render");
     return (
       <div className={styles.container}>
         <Navbar
