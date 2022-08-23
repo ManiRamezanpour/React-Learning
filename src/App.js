@@ -4,6 +4,11 @@ import styles from "./app.module.css";
 import Navbar from "./Components/Navbar/Navbar";
 
 class App extends Component {
+  //*? constructor log when class is run 
+  constructor(props) {
+    super(props)
+    console.log("App.js Constructor");
+  }
   state = {
     products: [
       { title: "Node", price: "17$", id: 1, quantity: 6 },
@@ -41,16 +46,24 @@ class App extends Component {
     selectedItem.title = e.target.value;
     this.setState({ products: products });
   };
+  //* finishd the run and ouput in DOM
+  componentDidMount() {  
+    console.log("App.js componentDidMount");
+   }
   render() {
+    //? log after render method run
+    console.log('App.js render');
     return (
       <div className={styles.container}>
-        <Navbar totalItem={this.state.products.filter((p) => p.quantity > 0).length} />
+        <Navbar
+          totalItem={this.state.products.filter((p) => p.quantity > 0).length}
+        />
         <ProductList
           products={this.state.products}
           onDelete={this.removeHandler}
           onIncrement={this.incrementHandlers}
           onDecrement={this.DecrementHandlers}
-          onChange={this.incrementHandlers}
+          onChange={this.inputHandler}
         />
       </div>
     );
