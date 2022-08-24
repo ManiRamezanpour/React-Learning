@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import Wrapper from "./Components/HOC/Wrapper";
-import UseRefExample from "./Components/Ref/UseRefExample";
+import Navbar from "./Components/Navbar/Navbar";
+import ProductList from "./Components/List/ProductList";
+import CounterProvider, {
+  CounterContext,
+} from "./Components/Context/CounterProvider";
+import CounterOne from "./Components/Context/CountOne";
 class App extends Component {
   state = {
     products: [
@@ -59,19 +64,23 @@ class App extends Component {
   };
   //* finishd the run and ouput in DOM
   componentDidMount() {
-    console.log("App.js componentDidMount");
+    // console.log("App.js componentDidMount");
     // AJAX =>
     //this.setState({ products })
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log("app.js cdu");
+    // console.log("app.js cdu");
   }
   render() {
     //? log after render method run
     // console.log("App.js render");
     return (
       <>
-        <UseRefExample />
+        <CounterProvider>
+          <p>wellCome to Context</p>
+          <CounterOne />
+        </CounterProvider>
+        {/* <UseRefExample /> */}
         {/* <FunctionalRef /> */}
         {/* <ClassRef /> */}
         {/* <ParentComp /> */}

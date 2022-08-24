@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "./Product.module.css";
 import { BiTrash } from "react-icons/bi";
 
 const Product = ({ onChnage, onDecrement, onIncrement, onDelete, product }) => {
-  console.log("Product.js render");
   // CDM + CDU + CDW => useEffect
   useEffect(() => {
-    console.log("Product.js useEffect");
+    // console.log("Product.js useEffect");
     return () => {
       // clean-up
-      console.log("product CDWU");
+      // console.log("product CDWU");
     };
   }, []);
   return (
