@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import Wrapper from "./Components/HOC/Wrapper";
-import Navbar from "./Components/Navbar/Navbar";
-import ProductList from "./Components/List/ProductList";
-import CounterProvider, {
-  CounterContext,
-} from "./Components/Context/CounterProvider";
-import CounterOne from "./Components/Context/CountOne";
+import CounterProvider from "./Context/CounterProvider";
+import CounterOne from "./Context/CountOne";
 class App extends Component {
   state = {
     products: [
