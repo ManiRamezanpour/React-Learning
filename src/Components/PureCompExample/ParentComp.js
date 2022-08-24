@@ -3,10 +3,10 @@ import MemoComp from "./MemoComp";
 import PureComp from "./PureComp";
 import RegComp from "./RegComp";
 class ParentComponent extends Component {
-  // when pureComponent for render state not change
-  // dont render the parent
+  //TODO: when pureComponent for render state not change
+  //? dont render the parent
   state = {
-    name: "Mani",
+    name: "Mani", 
   };
   componentDidMount() {
     setInterval(() => {

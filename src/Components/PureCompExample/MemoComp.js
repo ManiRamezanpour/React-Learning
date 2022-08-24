@@ -5,3 +5,5 @@ const MemoComp = (props) => {
 };
 
 export default React.memo(MemoComp);
+//TODO :  React.memo when not change the state Not reRender.
+//? : React.memo = PureComponents in Sfc.

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Wrapper from "./Components/HOC/Wrapper";
-import HocClick from "./Components/HocExample/HocClick";
-import HocHover from "./Components/HocExample/HocHover";
-import ParentComp from './Components/PureCompExample/ParentComp'
+import UseRefExample from "./Components/Ref/UseRefExample";
 class App extends Component {
   state = {
     products: [
@@ -73,8 +71,11 @@ class App extends Component {
     // console.log("App.js render");
     return (
       <>
-        <ParentComp />
-        {/* <HocClick name="saheb"/> */}
+        <UseRefExample />
+        {/* <FunctionalRef /> */}
+        {/* <ClassRef /> */}
+        {/* <ParentComp /> */}
+        {/* <HocClick name="Mani"/> */}
         {/* <HocHover /> */}
         {/* <Navbar
           totalItem={this.state.products.filter((p) => p.quantity > 0).length}
