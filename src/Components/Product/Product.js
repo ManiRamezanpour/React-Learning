@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Product.module.css";
 import { BiTrash } from "react-icons/bi";
 
-const Product = ({onChnage,onDecrement,onIncrement,onDelete,product}) => {
+const Product = ({ onChnage, onDecrement, onIncrement, onDelete, product }) => {
   console.log("Product.js render");
+  // CDM + CDU + CDW => useEffect
+  useEffect(() => {
+    console.log("Product.js useEffect");
+    return () => {
+      // clean-up
+      console.log("product CDWU");
+    };
+  }, []);
   return (
     <div className={styles.Product}>
       <h2>Product Name : {product.title}</h2>
@@ -23,7 +31,7 @@ const Product = ({onChnage,onDecrement,onIncrement,onDelete,product}) => {
       </button>
       <button
         className={`${styles.button} ${
-        product.quantity === 1 ? styles.remove : null
+          product.quantity === 1 ? styles.remove : null
         }`}
         onClick={onDecrement}
       >

@@ -1,18 +1,15 @@
 import React, { Component } from "react";
-import ProductList from "./Components/List/ProductList";
-import styles from "./app.module.css";
-import Navbar from "./Components/Navbar/Navbar";
-
+import Wrapper from "./Components/HOC/Wrapper";
+import HocClick from "./Components/HocExample/HocClick";
+import HocHover from "./Components/HocExample/HocHover";
 class App extends Component {
-  componentDidUpdate(prevProps, prevState) {
-    console.log("app.js cdu");
-    }
   state = {
     products: [
       { title: "Node", price: "17$", id: 1, quantity: 6 },
       { title: "React", price: "17$", id: 2, quantity: 2 },
       { title: "HTML", price: "17$", id: 3, quantity: 3 },
     ],
+    isShow: true,
   };
   removeHandler = (id) => {
     const filtredProduct = this.state.products.filter((p) => p.id !== id);
@@ -67,13 +64,17 @@ class App extends Component {
     // AJAX =>
     //this.setState({ products })
   }
-
+  componentDidUpdate(prevProps, prevState) {
+    console.log("app.js cdu");
+  }
   render() {
     //? log after render method run
-    console.log("App.js render");
+    // console.log("App.js render");
     return (
-      <div className={styles.container}>
-        <Navbar
+      <>
+        <HocClick name="saheb"/>
+        <HocHover />
+        {/* <Navbar
           totalItem={this.state.products.filter((p) => p.quantity > 0).length}
         />
         <ProductList
@@ -82,10 +83,9 @@ class App extends Component {
           onIncrement={this.incrementHandlers}
           onDecrement={this.DecrementHandlers}
           onChange={this.inputHandler}
-        />
-      </div>
+        /> */}
+      </>
     );
   }
 }
-
-export default App;
+export default Wrapper(App, "container");
