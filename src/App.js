@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Wrapper from "./Components/HOC/Wrapper";
 import HocClick from "./Components/HocExample/HocClick";
 import HocHover from "./Components/HocExample/HocHover";
+import ParentComp from './Components/PureCompExample/ParentComp'
 class App extends Component {
   state = {
     products: [
@@ -72,8 +73,9 @@ class App extends Component {
     // console.log("App.js render");
     return (
       <>
-        <HocClick name="saheb"/>
-        <HocHover />
+        <ParentComp />
+        {/* <HocClick name="saheb"/> */}
+        {/* <HocHover /> */}
         {/* <Navbar
           totalItem={this.state.products.filter((p) => p.quantity > 0).length}
         />
