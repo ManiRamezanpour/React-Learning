@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-export const CounterContext = React.createContext();
-export const CounterContextDispatcher = React.createContext();
+import React, { useState, useContext } from "react";
+
+const CounterContext = React.createContext();
+const CounterContextDispatcher = React.createContext();
 
 const CounterProvider = ({ children }) => {
   const [count, setCount] = useState(4);
@@ -15,3 +16,17 @@ const CounterProvider = ({ children }) => {
 };
 
 export default CounterProvider;
+export const useCount = () => useContext(CounterContext);
+export const useCountAction = () => {
+  const setCount = useContext(CounterContextDispatcher);
+  const addOne = () => {
+    setCount((prevcount) => prevcount + 1);
+  };
+  const addFive = () => {
+    setCount((prevcount) => prevcount + 5);
+  };
+  const decrement = () => {
+    setCount((prevcount) => prevcount - 1);
+  };
+  return { addOne, addFive, decrement };
+};

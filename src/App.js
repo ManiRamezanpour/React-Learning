@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Wrapper from "./Components/HOC/Wrapper";
+import CounterReducer from "./Components/Reducer/CounterReducer";
 import CounterProvider from "./Context/CounterProvider";
-import CounterOne from "./Context/CountOne";
 class App extends Component {
   state = {
     products: [
@@ -73,15 +73,10 @@ class App extends Component {
     return (
       <>
         <CounterProvider>
-          <p>wellCome to Context</p>
-          <CounterOne />
+          <h1>wellCome to Context</h1>
+          {/* <CounterOne /> */}
+          <CounterReducer />
         </CounterProvider>
-        {/* <UseRefExample /> */}
-        {/* <FunctionalRef /> */}
-        {/* <ClassRef /> */}
-        {/* <ParentComp /> */}
-        {/* <HocClick name="Mani"/> */}
-        {/* <HocHover /> */}
         {/* <Navbar
           totalItem={this.state.products.filter((p) => p.quantity > 0).length}
         />
