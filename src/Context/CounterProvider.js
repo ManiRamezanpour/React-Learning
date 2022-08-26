@@ -4,7 +4,7 @@ const CounterContext = React.createContext();
 const CounterContextDispatcher = React.createContext();
 const initialState = 0;
 const reducer = (state, action) => {
-  console.log(state,action.type);
+  console.log(state, action.type);
   switch (action.type) {
     case "add":
       return state + action.value;
@@ -31,6 +31,7 @@ export default CounterProvider;
 export const useCount = () => useContext(CounterContext);
 
 export const useCountAction = () => {
+  //TODO : use reducer in Context
   return useContext(CounterContextDispatcher);
   // const addOne = () => {
   //   setCount((prevcount) => prevcount + 1);

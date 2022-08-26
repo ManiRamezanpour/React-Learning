@@ -11,9 +11,9 @@ const Wrapper = (WrapperComponent, className) => {
     return (
       <div className={className}>
         <WrapperComponent {...props} />
-      </div>
+      </div>  
     );
-  };
+  };  
 };
 
 export default Wrapper;

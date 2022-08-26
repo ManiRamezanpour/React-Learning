@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import Wrapper from "./Components/HOC/Wrapper";
+import Navbar from "./Components/Navbar/Navbar";
+import ProductList from "./Components/List/ProductList";
+import CounterReducer from "./Components/Reducer/CounterReducer";
 import CounterProvider from "./Context/CounterProvider";
-import CounterOne from "./Context/CountOne";
+import MulltipleReducer from "./Components/Reducer/MulltipleReducer";
 class App extends Component {
   state = {
     products: [
@@ -72,11 +75,13 @@ class App extends Component {
     // console.log("App.js render");
     return (
       <>
-        <CounterProvider>
+        {/* <CounterProvider>
           <h1>wellCome to Context</h1>
-          <CounterOne />
-        </CounterProvider>
-        {/* <Navbar
+          {/* <CounterOne /> */}
+        {/* <CounterReducer /> */}
+        {/* <MulltipleReducer />
+        </CounterProvider> */}
+        <Navbar
           totalItem={this.state.products.filter((p) => p.quantity > 0).length}
         />
         <ProductList
@@ -85,7 +90,7 @@ class App extends Component {
           onIncrement={this.incrementHandlers}
           onDecrement={this.DecrementHandlers}
           onChange={this.inputHandler}
-        /> */}
+        />
       </>
     );
   }
