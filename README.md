@@ -1,5 +1,4 @@
-this repo made by Manirmp to upload the all of code in react  course use;
-
+React practic
 ## Available Scripts
 
 In the project directory, you can run:
